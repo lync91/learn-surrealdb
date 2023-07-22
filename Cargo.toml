@@ -1,0 +1,22 @@
+[package]
+name = "surrealdb-architecture"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+debug = true
+
+[dependencies]
+serde = { version = "1.0.96", features = ["serde_derive"] }
+tokio = { version = "1.21.2", features = ["full"] }
+async-trait = "0.1.66"
+surrealdb = { git = "https://github.com/surrealdb/surrealdb", features = ["kv-rocksdb"], rev = "33c35949b7e71b32834f5918eca86ebac3de7f80" }
+
+# used to quickly & easily generate sub-types
+# surreal-simple-querybuilder = { git = "https://github.com/Aelto/surreal-simple-querybuilder", features = ["queries", "foreign", "model"] }
+serde_json = "1.0.96"
+dunce = "1.0.4" # cross platform absolute paths for surrealdb
+futures = "0.3.28"
+surreal-simple-querybuilder = { version = "0.7.0", features = ["all"] }
